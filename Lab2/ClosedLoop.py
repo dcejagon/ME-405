@@ -19,7 +19,7 @@ class ClosedLoop:
         
         self.actuation=self.Kp.read()*self.error
         self.duty.write(self.actuation)
-        #print(self.duty.read())
+        
     
     
     

@@ -56,8 +56,7 @@ class MotorDriver:
         @param level A signed integer holding the duty
                cycle of the voltage sent to the motor 
         '''
-        #level=self.duty.read()
-        #print(self.duty.read())
+        
         if self.duty.read()>=0:
             
             self.ch1.pulse_width_percent(self.duty.read())
@@ -65,7 +64,7 @@ class MotorDriver:
         else:
             self.ch1.pulse_width_percent(0)
             self.ch2.pulse_width_percent(abs(self.duty.read()))   
-        #print ('Setting duty cycle to ' + str (level))
+        
         
 
 

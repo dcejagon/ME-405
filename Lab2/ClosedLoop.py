@@ -1,12 +1,18 @@
+import utime
+import time
+from matplotlib import pyplot as plt
 
 class ClosedLoop:
     
-    def __init__(self,Kp,setpoint,EncPosition,duty):
+    def __init__(self,Kp,setpoint,EncPosition,duty,time):
         self.Kp=Kp
         self.setpoint=setpoint
         self.EncPosition=EncPosition
         self.duty=duty
-        
+        self.time=time
+        self.Time=[]
+        self.Pos=[]
+        self.starttime=time.ticks_ms()
     def Setpoint(self,setpoint):
         self.setpoint=setpoint.read()
         
@@ -16,9 +22,21 @@ class ClosedLoop:
             
     def control_loop(self):
         self.error=self.EncPosition.read()-self.setpoint.read()
-        
         self.actuation=self.Kp.read()*self.error
+        
         self.duty.write(self.actuation)
+        
+        
+        utime.sleep_ms(10)
+        #print(time.ticks_ms(),self.EncPosition.read())
+        
+        self.Time.append(time.ticks_diff(time.ticks_ms(),self.starttime))
+        self.Pos.append(self.EncPosition.read())
+    def printdata(self):
+        
+        print(self.Time,self.Pos)
+        
+    
         
     
     

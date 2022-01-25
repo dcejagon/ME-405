@@ -18,13 +18,14 @@ timernumber=4
 #4096 ticks is one rotation 
 setpoint=shares.Share(4096*4)
 EncPosition=shares.Share(0)
-Kp=shares.Share(1)
+Kp=shares.Share(.1)
 actuation=shares.Share()
 duty=shares.Share(0)
+
 motor1=MotorDriver.MotorDriver(en_pin, in1pin, in2pin, timer,duty)
 
 ENC1=EncoderDriver.EncoderDriver(ENCpin1,ENCpin2,timernumber,EncPosition)
-Cl1=ClosedLoop.ClosedLoop(Kp,setpoint,EncPosition,duty)
+Cl1=ClosedLoop.ClosedLoop(Kp,setpoint,EncPosition,duty,time)
 
 
 while True:
@@ -34,6 +35,8 @@ while True:
         motor1.set_duty_cycle(duty.read())
         
         
+        
     except KeyboardInterrupt:
+        Cl1.printdata()
         motor1.set_duty_cycle(0)
         break

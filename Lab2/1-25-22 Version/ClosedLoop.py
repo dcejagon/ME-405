@@ -37,12 +37,19 @@ class ClosedLoop:
     #     print(self.Time,self.Pos)
         
     def printdata(self):
-
-        for n in self.Time:
-
-            print(self.Time[n],self.Pos[n])
-        
+        n=0
+        while True:
+            try:
+                if n<=len(self.Time) or n<=len(self.Pos):
+                    print(self.Time[n],self.Pos[n])
+                    n+=1
+                else:
+                    pass
+                
+            except KeyboardInterrupt:
+                break
     
+        
         
     
     

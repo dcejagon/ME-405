@@ -28,15 +28,21 @@ ENC1=EncoderDriver.EncoderDriver(ENCpin1,ENCpin2,timernumber,EncPosition)
 Cl1=ClosedLoop.ClosedLoop(Kp,setpoint,EncPosition,duty,time)
 
 
+
+# x = input('Enter 1 to run step: ')
+
 while True:
     try:
         ENC1.read()
         Cl1.control_loop()
         motor1.set_duty_cycle(duty.read())
+       
+        
         
         
         
     except KeyboardInterrupt:
         Cl1.printdata()
         motor1.set_duty_cycle(0)
+        print('Stop Data')
         break

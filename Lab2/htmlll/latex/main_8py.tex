@@ -1,0 +1,70 @@
+\hypertarget{main_8py}{}\doxysection{main.\+py File Reference}
+\label{main_8py}\index{main.py@{main.py}}
+
+
+main file which handles all drivers tasks and shares  
+
+
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8py_a87970a5d04059649a6735a2a405477ea}\label{main_8py_a87970a5d04059649a6735a2a405477ea}} 
+{\bfseries main.\+en\+\_\+pin} = pyb.\+Pin (pyb.\+Pin.\+board.\+PA10, pyb.\+Pin.\+OUT\+\_\+\+PP)
+\item 
+\mbox{\Hypertarget{main_8py_aad671708cd06aec861a24b45c56c74aa}\label{main_8py_aad671708cd06aec861a24b45c56c74aa}} 
+{\bfseries main.\+in1pin} = pyb.\+Pin (pyb.\+Pin.\+board.\+PB4, pyb.\+Pin.\+OUT\+\_\+\+PP)
+\item 
+\mbox{\Hypertarget{main_8py_ae821c4ba5f2d29414e6008d3caaf5109}\label{main_8py_ae821c4ba5f2d29414e6008d3caaf5109}} 
+{\bfseries main.\+in2pin} = pyb.\+Pin (pyb.\+Pin.\+board.\+PB5, pyb.\+Pin.\+OUT\+\_\+\+PP)
+\item 
+\mbox{\Hypertarget{main_8py_a4fe20a9d36fdc5b4ea50d88f43f6ed54}\label{main_8py_a4fe20a9d36fdc5b4ea50d88f43f6ed54}} 
+int {\bfseries main.\+timer} = 3
+\item 
+\mbox{\Hypertarget{main_8py_a9302e8220a79b02f30da6df3b3b72db9}\label{main_8py_a9302e8220a79b02f30da6df3b3b72db9}} 
+{\bfseries main.\+ENCpin1} = pyb.\+Pin (pyb.\+Pin.\+board.\+PB6)
+\item 
+\mbox{\Hypertarget{main_8py_a335a37a6d6e27c40302538c0b03bea08}\label{main_8py_a335a37a6d6e27c40302538c0b03bea08}} 
+{\bfseries main.\+ENCpin2} = pyb.\+Pin (pyb.\+Pin.\+board.\+PB7)
+\item 
+\mbox{\Hypertarget{main_8py_aee15e1a13ec15c40e22322b1ca997d5a}\label{main_8py_aee15e1a13ec15c40e22322b1ca997d5a}} 
+int {\bfseries main.\+timernumber} = 4
+\item 
+\mbox{\Hypertarget{main_8py_a150b6c62b1a3373e267b36b2dbadceb9}\label{main_8py_a150b6c62b1a3373e267b36b2dbadceb9}} 
+{\bfseries main.\+setpoint} = \mbox{\hyperlink{classshares_1_1Share}{shares.\+Share}}(4096$\ast$4)
+\item 
+\mbox{\Hypertarget{main_8py_a35d82fc6f6309ca098efc4fb6ab555ff}\label{main_8py_a35d82fc6f6309ca098efc4fb6ab555ff}} 
+{\bfseries main.\+Enc\+Position} = \mbox{\hyperlink{classshares_1_1Share}{shares.\+Share}}(0)
+\item 
+\mbox{\Hypertarget{main_8py_a62bb069cc916457d26d7121c79cf94ab}\label{main_8py_a62bb069cc916457d26d7121c79cf94ab}} 
+{\bfseries main.\+Kp} = \mbox{\hyperlink{classshares_1_1Share}{shares.\+Share}}(.\+1)
+\item 
+\mbox{\Hypertarget{main_8py_ab1652bf26ef4638bd06bb3e24027e23a}\label{main_8py_ab1652bf26ef4638bd06bb3e24027e23a}} 
+{\bfseries main.\+actuation} = \mbox{\hyperlink{classshares_1_1Share}{shares.\+Share}}()
+\item 
+\mbox{\Hypertarget{main_8py_a67514afbf4ef7ef133a8277edc2c29e3}\label{main_8py_a67514afbf4ef7ef133a8277edc2c29e3}} 
+{\bfseries main.\+duty} = \mbox{\hyperlink{classshares_1_1Share}{shares.\+Share}}(0)
+\item 
+\mbox{\Hypertarget{main_8py_a3a2f088acede9b226beb08b70c42f146}\label{main_8py_a3a2f088acede9b226beb08b70c42f146}} 
+{\bfseries main.\+motor1} = \mbox{\hyperlink{classMotorDriver_1_1MotorDriver}{Motor\+Driver.\+Motor\+Driver}}(en\+\_\+pin, in1pin, in2pin, timer,duty)
+\item 
+\mbox{\Hypertarget{main_8py_aab5c7095975a4a61d864fc7509ca8bbf}\label{main_8py_aab5c7095975a4a61d864fc7509ca8bbf}} 
+{\bfseries main.\+ENC1} = \mbox{\hyperlink{classEncoderDriver_1_1EncoderDriver}{Encoder\+Driver.\+Encoder\+Driver}}(ENCpin1,ENCpin2,timernumber,Enc\+Position)
+\item 
+\mbox{\Hypertarget{main_8py_a340ff999da8b540791ea097a68e47abe}\label{main_8py_a340ff999da8b540791ea097a68e47abe}} 
+{\bfseries main.\+Cl1} = \mbox{\hyperlink{classClosedLoop_1_1ClosedLoop}{Closed\+Loop.\+Closed\+Loop}}(Kp,setpoint,Enc\+Position,duty,time)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+main file which handles all drivers tasks and shares 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gonzalez 
+
+Nolan Clapp 
+
+Caleb Kephart 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+January 31, 2022 
+\end{DoxyDate}

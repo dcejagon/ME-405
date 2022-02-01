@@ -1,3 +1,11 @@
+"""
+    @file                    ClosedLoop.py
+    @brief                   This file provides the code to interface directly with the encoder hardware
+    @author                  Daniel Gonzalez
+    @author                  Nolan Clapp
+    @author                  Caleb Kephart
+    @date                    January 31, 2022
+"""
 import utime
 import time
 #from matplotlib import pyplot as plt

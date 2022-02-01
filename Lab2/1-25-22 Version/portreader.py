@@ -13,7 +13,7 @@ import serial
 with serial.Serial ('COM3', 115200) as ser_port:
     
     ser_port.write (b'0.05\r\n')   # Write bytes, not a string
-    ser_port.write(b'13000\r\n')
+    ser_port.write (b'13000\r\n')
    
     time.sleep(1)
     

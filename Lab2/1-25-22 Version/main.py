@@ -1,3 +1,12 @@
+"""
+    @file                    main.py
+    @brief                   main file which handles all drivers tasks and shares
+    @author                  Daniel Gonzalez
+    @author                  Nolan Clapp
+    @author                  Caleb Kephart
+    @date                    January 31, 2022
+"""
+
 import EncoderDriver
 import MotorDriver
 import ClosedLoop

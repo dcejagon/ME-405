@@ -44,7 +44,7 @@ x = input('Enter 1 to run step response:')
 
 while True:
     try:
-        x = int(input('Enter 1 to run step response:'))
+        x = int(input('Enter 0 to run step response:'))
         if x <= 10:
             
             ENC1.read()

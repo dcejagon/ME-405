@@ -85,13 +85,13 @@ class EncoderDriver:
             
             delta+=self.period
         #make previous count = current count
-        #else:
-           # self.ENCposition=count
+        
         self.position+=delta
         self.EncPosition.write(self.position)
+        
         self.countprev=count
         
-        #print(self.EncPosition.read())
+        
         return self.EncPosition.read()
         
        

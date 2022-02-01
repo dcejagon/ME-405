@@ -38,17 +38,10 @@ class ClosedLoop:
         
     def printdata(self):
         n=0
-        while True:
-            try:
-                if n<=len(self.Time) or n<=len(self.Pos):
-                    print(self.Time[n],self.Pos[n])
-                    n+=1
-                else:
-                    pass
-                
-            except KeyboardInterrupt:
-                break
-    
+        while n< len(self.Time):
+            print(self.Time[n],self.Pos[n])
+            n=n+1
+     
         
         
     

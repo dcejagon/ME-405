@@ -38,13 +38,21 @@ Cl1=ClosedLoop.ClosedLoop(Kp,setpoint,EncPosition,duty,time)
 
 
 
-# x = input('Enter 1 to run step: ')
+x = input('Enter 1 to run step response:')
+
+
 
 while True:
     try:
-        ENC1.read()
-        Cl1.control_loop()
-        motor1.set_duty_cycle(duty.read())
+        x = input('Enter 1 to run step response:')
+        if x == '1':
+            
+            ENC1.read()
+            Cl1.control_loop()
+            motor1.set_duty_cycle(duty.read())
+            x = None
+        else:
+            pass
        
         
     except KeyboardInterrupt:

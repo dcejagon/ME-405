@@ -38,19 +38,21 @@ class ClosedLoop:
         
     def printdata(self):
         n=0
-        while True:
-            try:
-                if n<=len(self.Time) or n<=len(self.Pos):
-                    print(self.Time[n],self.Pos[n])
-                    n+=1
-                else:
-                    pass
-                
-            except KeyboardInterrupt:
-                break
-    
+        while n<len(self.Time):
+             print(self.Time[n],",",self.Pos[n])
+             n=n+1
         
+        # plt.plot(self.Time,self.Pos)
+        # plt.plot(self.Time,self.Pos, 'or')
         
+        # # Axis Labeling
+        # plt.xlabel('Time (ms)') 
+        # plt.ylabel('Encoder Position (ticks)') 
+            
+        # # Graph Title
+        # plt.title('Lab 2 Plots') 
+        
+        # plt.show()
     
     
     

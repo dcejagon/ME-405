@@ -38,9 +38,6 @@ while True:
         motor1.set_duty_cycle(duty.read())
        
         
-        
-        
-        
     except KeyboardInterrupt:
         Cl1.printdata()
         motor1.set_duty_cycle(0)

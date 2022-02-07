@@ -33,21 +33,21 @@ item_x = [i.split(',', 1)[0] for i in data_results]
 print(item_x)        
    
 
-item_y = [i.split(',', 1)[1] for i in data_results]
-print(item_y)
+# item_y = [i.split(',', 1)[1] for i in data_results]
+# print(item_y)
         
 
-plt.plot(item_x,item_y)
-plt.plot(item_x,item_y, 'or')
+# plt.plot(item_x,item_y)
+# plt.plot(item_x,item_y, 'or')
 
-# Axis Labeling
-plt.xlabel('Time (ms)') 
-plt.ylabel('Encoder Position (ticks)') 
+# # Axis Labeling
+# plt.xlabel('Time (ms)') 
+# plt.ylabel('Encoder Position (ticks)') 
     
-# Graph Title
-plt.title('Lab 3 Plots') 
+# # Graph Title
+# plt.title('Lab 3 Plots') 
 
-plt.show()
+# plt.show()
 
 # x=[]
 # y=[]          

@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 @file:      CejaGonzalez.py
-@brief:     Homeowork 1 - Practice on Generators and FSM  
-@details:   Program generates random  
+@brief:     Homeowork 1 - Generators and FSM  
+@details:   Program generates states for student throughout a 50 day flu 
+            season. States are dependant on vaccination and flu chances.
 @author:    Daniel Ceja Gonzalez 
 @date:      2/4/2022
 
@@ -13,8 +14,8 @@ import random
 
 def flusim():
     ''' @brief:    Creates a 50 Day Flu Season simulation for student
-        @details:  Student's flu state changes throughout the 50 days depending
-                   on the students Vaccination and Flu chance.
+        @details:  Student's flu state throughout the 50 days is dependant on
+                   a 50% Flu chance and 10% Vaccination chance.
     '''
     state = 0 
     
@@ -53,7 +54,7 @@ def plot(day, state):
                     simulated 50 days 
     '''
     
-    
+    #Plot
     plt.plot(day, state)
     plt.plot(day, state, 'or')
     

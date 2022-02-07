@@ -101,8 +101,8 @@ class EncoderDriver:
             @return position The new position of the encoder shaft (0)
         '''
         self.EncPosition.write(0)
-        print('Zeroing Encoder')
-        print(self.EncPosition.read())
+        #print('Zeroing Encoder')
+        #print(self.EncPosition.read())
         return self.EncPosition.read()
 
 

@@ -42,7 +42,7 @@ Cl1=ClosedLoop.ClosedLoop(Kp,setpoint,EncPosition,duty,time)
 
 while True:
     try:
-        x = int(input('Enter 0 to run step response:'))
+        x = int(input())
         while True: 
             try: 
                 if x <= 10:

@@ -11,7 +11,7 @@ import serial
 from matplotlib import pyplot as plt
 
 
-with serial.Serial ('COM26', 115200) as ser_port:
+with serial.Serial ('COM6', 115200) as ser_port:
     
     ser_port.write (b'0\r\n')
     time.sleep(1)
@@ -28,14 +28,17 @@ with serial.Serial ('COM26', 115200) as ser_port:
         except KeyboardInterrupt:
             break
         
-        
-item_x = [i.split(',', 1)[0] for i in data_results]
-print(item_x)        
-   
 
-# item_y = [i.split(',', 1)[1] for i in data_results]
-# print(item_y)
-        
+data_results = ','.join(data_results).split(',')
+print(data_results)   
+
+   
+# item_x = [i.split(',', 1)[0] for i in data_results]
+# print(item_x)        
+   
+# item_y = [i.split(',', 1)[0] for i in data_results]
+# print(item_y)  
+# 
 
 # plt.plot(item_x,item_y)
 # plt.plot(item_x,item_y, 'or')
@@ -49,37 +52,3 @@ print(item_x)
 
 # plt.show()
 
-# x=[]
-# y=[]          
-# for n in range (len(data_results)):
-#     try:
-#         item=data_results.split(',', 1)[0 for in data_results]
-#         x.append(float(data_results[n]))
-#         y.append(float(data_results[n]))
-#     except ValueError:
-#         continue
-    
-# f = open('csv.csv','w')
-# writer = csv.writer(f)
-
-# for row in data_results:
-#     for n in range (len(data_results)):
-#         writer.writerow(data_results[n])
-
-# f.close()
-
-# x_val = [x[0] for x in data_results]
-# y_val = [x[1] for x in data_results]
-
-
-# plt.plot(x_val,y_val)
-# plt.plot(x_val,y_val, 'or')
-
-# # Axis Labeling
-# plt.xlabel('Time (ms)') 
-# plt.ylabel('Encoder Position (ticks)') 
-    
-# # Graph Title
-# plt.title('Lab 2 Plots') 
-
-# plt.show()

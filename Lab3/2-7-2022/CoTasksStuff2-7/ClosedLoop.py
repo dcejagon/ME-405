@@ -24,10 +24,10 @@ class ClosedLoop:
             @param time     This parameter sets a timer to be used for the data collection
             
         '''
-        ## @brief System Gain
+        ## @brief System Gain for motor 1
         #
-        self.Kp1=Kp1
-        ## @brief System Gain
+        self.Kp1=Kp1 
+        ## @brief System Gain for motor 2
         #
         self.Kp2=Kp2
         ## @brief Desired encoder position
@@ -74,14 +74,23 @@ class ClosedLoop:
         #
         self.starttime=time.ticks_ms()
     def Setpoint(self,setpoint1,setpoint2):
+        '''!
+            Accesses the setpoint shares to set final encoder position for each motor.
+        '''
         self.setpoint1=setpoint1.get()
         self.setpoint2=setpoint2.get()
         
     def SetKp(self,Kp):
+        '''!
+            accesses Kp share 
+        '''
         self.Kp=Kp.get()
         
             
     def control_loop(self):
+        '''!
+            funciton will put motor in a closed loop with the desired setpoint and gain.
+        '''
         #Motor1
         
         ## @brief the error between actual and desired position
@@ -100,6 +109,9 @@ class ClosedLoop:
         self.Time1.append(time.ticks_diff(time.ticks_ms(),self.starttime))
         self.Pos1.append(self.EncPosition1.get())
     def control_loop2(self):
+        '''!
+            same function as previous but for second motor
+        '''
         # Motor 2
         self.error2=self.EncPosition2.get()-self.setpoint2.get()
         ## @brief the duty cycle required for the system to correct with set gain.
@@ -117,6 +129,9 @@ class ClosedLoop:
         #print(self.EncPosition1.get(), ',',self.EncoderPosition2.get())
 
     def printdata(self):
+        '''!
+            displays lists for time and encoder position while the task runs
+        '''
         ## @brief index of arrays
         #
         n=0

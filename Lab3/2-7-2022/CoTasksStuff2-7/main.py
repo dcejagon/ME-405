@@ -62,6 +62,9 @@ Cl2=ClosedLoop.ClosedLoop(Kp1,Kp2,setpoint1,setpoint2,EncPosition,EncPosition2,d
 
 
 def task1_fun ():
+    '''!
+        runs tasks and functions for the first motor
+    '''
     while True:
     #do motor 1 stuff here
         ENC1.read()
@@ -71,7 +74,9 @@ def task1_fun ():
         yield (0)
 
 def task2_fun ():
-    
+    '''!
+        runs tasks and functions for the second motor
+    '''
     while True:
         #do motor 1 stuff here
         

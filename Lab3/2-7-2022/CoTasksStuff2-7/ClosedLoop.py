@@ -8,14 +8,14 @@
 """
 import utime
 import time
-#from matplotlib import pyplot as plt
+
 
 class ClosedLoop:
     ''' @brief Puts system into a closed loop.
         @details This code allows us to run the motor/encoder system within a closed loop.
     '''
     
-    def __init__(self,Kp1,Kp2,setpoint1,setpoint2,EncPosition1,EncPosition2,duty1, duty2,time):
+    def __init__(self,Kp,setpoint1,setpoint2,EncPosition1,EncPosition2,duty1, duty2,time):
         ''' @brief          Constructs a closed loop object
             @details        Sets up the closed loop so that it can intake data from the encoder and main to send to the motor driver.
             @param Kp       This parameter allows us to choose the gain utilized by the system
@@ -26,10 +26,7 @@ class ClosedLoop:
         '''
         ## @brief System Gain
         #
-        self.Kp1=Kp1
-        ## @brief System Gain
-        #
-        self.Kp2=Kp2
+        self.Kp=Kp
         ## @brief Desired encoder position
         #
         self.setpoint1=setpoint1
@@ -89,7 +86,7 @@ class ClosedLoop:
         self.error1=self.EncPosition1.get()-self.setpoint1.get()
         ## @brief the duty cycle required for the system to correct with set gain.
         # 
-        self.actuation1=self.Kp1.get()*self.error1
+        self.actuation1=self.Kp.get()*self.error1
         
         self.duty1.put(self.actuation1)
         
@@ -104,8 +101,8 @@ class ClosedLoop:
         self.error2=self.EncPosition2.get()-self.setpoint2.get()
         ## @brief the duty cycle required for the system to correct with set gain.
         # 
-        self.actuation2=self.Kp2.get()*self.error2
-        print(self.actuation2)
+        self.actuation2=self.Kp.get()*self.error2
+        
         self.duty2.put(self.actuation2)
         #print(self.EncPosition2.get())
         
@@ -123,6 +120,9 @@ class ClosedLoop:
         while n< len(self.Time1):
             print(self.Time1[n],',',self.Pos1[n])
             n=n+1
+        print('Stop Data')
+            
+
         
 
     

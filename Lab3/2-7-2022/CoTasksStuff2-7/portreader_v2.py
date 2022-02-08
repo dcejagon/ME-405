@@ -43,6 +43,11 @@ listEven = data_results[::2] # Elements from list1 starting from 0 iterating by 
 
 listOdd.pop(len(listOdd)-1)
 listEven.pop(0)
+for i in listOdd:
+    listOdd[i] = int(listOdd[i])
+    
+for i in listEven:
+    listEven[i] = int(listEven[i])
 #print (listOdd)
 #print (listEven)
    
@@ -65,4 +70,4 @@ plt.ylabel('Encoder Position (ticks)')
 plt.title('Lab 3 Plots') 
 
 plt.show()
-
+#plt.savefig('Lab4_Plot.png')

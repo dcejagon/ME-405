@@ -1,5 +1,7 @@
 """
-    @file                    EncoderDriver.py
+    @file                    portreader_v2.py
+    @brief                   serial port reader
+    @description             reads lines sent from nucleo to serial port of PC. Sends input to nucleo to run code and generates plots from data collected.
     @author                  Daniel Gonzalez
     @author                  Nolan Clapp
     @author                  Caleb Kephart

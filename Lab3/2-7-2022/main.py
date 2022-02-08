@@ -60,12 +60,14 @@ def task1_fun ():
     ENC1.read()
     Cl1.control_loop()
     motor1.set_duty_cycle(duty1.get())
+    yield (0)
 
 def task2_fun ():
     #do motor 1 stuff here
-    ENC2.read()
-    Cl2.control_loop()
+    ENC2.read2()
+    Cl2.control_loop2()
     motor2.set_duty_cycle(duty2.get())
+    yield (0)
     
 if __name__=="__main__":
     

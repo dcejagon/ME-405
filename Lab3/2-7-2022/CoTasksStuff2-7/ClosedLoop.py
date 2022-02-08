@@ -15,7 +15,7 @@ class ClosedLoop:
         @details This code allows us to run the motor/encoder system within a closed loop.
     '''
     
-    def __init__(self,Kp,setpoint1,setpoint2,EncPosition1,EncPosition2,duty1, duty2,time):
+    def __init__(self,Kp1,Kp2,setpoint1,setpoint2,EncPosition1,EncPosition2,duty1, duty2,time):
         ''' @brief          Constructs a closed loop object
             @details        Sets up the closed loop so that it can intake data from the encoder and main to send to the motor driver.
             @param Kp       This parameter allows us to choose the gain utilized by the system
@@ -26,7 +26,10 @@ class ClosedLoop:
         '''
         ## @brief System Gain
         #
-        self.Kp=Kp
+        self.Kp1=Kp1
+        ## @brief System Gain
+        #
+        self.Kp2=Kp2
         ## @brief Desired encoder position
         #
         self.setpoint1=setpoint1
@@ -55,10 +58,18 @@ class ClosedLoop:
         self.time=time
         ## @brief array of time data
         #
-        self.Time=[]
+        self.Time1=[]
         ## @brief array of actual position data
         #
-        self.Pos=[]
+        self.Pos1=[]
+        ## @brief starting time of data collection 
+        #
+        ## @brief array of time data
+        #
+        self.Time2=[]
+        ## @brief array of actual position data
+        #
+        self.Pos2=[]
         ## @brief starting time of data collection 
         #
         self.starttime=time.ticks_ms()
@@ -78,7 +89,7 @@ class ClosedLoop:
         self.error1=self.EncPosition1.get()-self.setpoint1.get()
         ## @brief the duty cycle required for the system to correct with set gain.
         # 
-        self.actuation1=self.Kp.get()*self.error1
+        self.actuation1=self.Kp1.get()*self.error1
         
         self.duty1.put(self.actuation1)
         
@@ -93,16 +104,17 @@ class ClosedLoop:
         self.error2=self.EncPosition2.get()-self.setpoint2.get()
         ## @brief the duty cycle required for the system to correct with set gain.
         # 
-        self.actuation2=self.Kp.get()*self.error2
-        
-        self.duty2.put(self.actuation1)
-        
+        self.actuation2=self.Kp2.get()*self.error2
+        print(self.actuation2)
+        self.duty2.put(self.actuation2)
+        #print(self.EncPosition2.get())
         
         utime.sleep_ms(10)
         #print(time.ticks_ms(),self.EncPosition.get())
         
         self.Time2.append(time.ticks_diff(time.ticks_ms(),self.starttime))
         self.Pos2.append(self.EncPosition2.get())
+        #print(self.EncPosition1.get(), ',',self.EncoderPosition2.get())
 
     def printdata(self):
         ## @brief index of arrays

@@ -1,8 +1,9 @@
-# -*- coding: utf-8 -*-
 """
-Created on Mon Feb  7 15:08:10 2022
-
-@author: nclap
+    @file                    main.py
+    @author                  Daniel Gonzalez
+    @author                  Nolan Clapp
+    @author                  Caleb Kephart
+    @date                    February 7, 2022
 """
 
 import gc

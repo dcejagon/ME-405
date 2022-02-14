@@ -11,10 +11,10 @@ import serial
 from matplotlib import pyplot as plt
 
 
-with serial.Serial ('COM10', 115200) as ser_port:
+with serial.Serial ('COM26', 115200) as ser_port:
     
     ser_port.write (b'0\r\n')
-    time.sleep(1)
+    time.sleep(3)
     ser_port.write(b'\x03')
     data_results=[]
     while True :
@@ -33,10 +33,6 @@ data_results = ','.join(data_results).split(',')
 print(data_results)   
 
 
-for i in range(0, len(data_results)):
-   data_results[i] = int(data_results[i])
-
-Time = len(data_results)
 
 
 
@@ -45,6 +41,11 @@ Time = len(data_results)
 
 data_results.pop(len(data_results)-1)
 data_results.pop(0)
+
+for i in range(0, len(data_results)):
+   data_results[i] = int(data_results[i])
+
+Time = range(0,len(data_results))
 #print (listOdd)
 #print (listEven)
    
@@ -65,6 +66,6 @@ plt.ylabel('DAC Step Response (ticks)')
     
 # Graph Title
 plt.title('Lab 4 Plots') 
-
+plt.savefig('RC_Circuit_Responce.png')
 plt.show()
 

@@ -14,7 +14,7 @@ from matplotlib import pyplot as plt
 with serial.Serial ('COM26', 115200) as ser_port:
     
     ser_port.write (b'0\r\n')
-    time.sleep(3)
+    time.sleep(5)
     ser_port.write(b'\x03')
     data_results=[]
     while True :
@@ -66,6 +66,6 @@ plt.ylabel('DAC Step Response (ticks)')
     
 # Graph Title
 plt.title('Lab 4 Plots') 
-plt.savefig('RC_Circuit_Responce.png')
+plt.savefig('RC_Circuit_Responce2.png')
 plt.show()
 

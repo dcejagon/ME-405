@@ -40,7 +40,7 @@ time.sleep(1)
 ##  @brief Sets up timer 1
 #   @details sets up timer as timer 1 on the nucleo using pyb.Timer and then determining the frequency
 tim1=pyb.Timer(1)
-tim1.init(freq=100)
+tim1.init(freq=3000)
 
 def interruptfunc(tim1):
     '''
@@ -52,12 +52,13 @@ def interruptfunc(tim1):
 
 
 ## @brief Variable to wait for input to allow us to run portreader file
-
-tim1.callback(interruptfunc)
 x=int(input())
-
+tim1.callback(interruptfunc)
+time.sleep_ms(100)
 pinC1.high()
-time.sleep_ms(5)
+#time.sleep(2)
+
+
 while x<=10:
     try: 
         print(q0.get())

@@ -21,24 +21,29 @@ micropython.alloc_emergency_exception_buf(100)
 
 ##  @brief Variable for Queue
 #   @details This variable sets up a shared queue that is 1000 long and takes in 16-bit integers
+#
 q0 = task_share.Queue ('L', 1000, thread_protect = False, overwrite = False, name = "Queue 0")
 
 
 ##  @brief Variable for the output pin
 #   @details Sets up variable for the output pin using pin C1 on the Nucleo
+#
 pinC1=pyb.Pin(pyb.Pin.cpu.C1, pyb.Pin.OUT_PP)
 
 ##  @brief Variable for the ADC pin
 #   @details Sets up variable for the ADC pin we will read from using pin C0 on the Nucleo
+#
 pinC0=pyb.Pin(pyb.Pin.cpu.C0)
 
 ##  @brief Variable to take ADC readings
 #   @details Sets up variable to take ADC readings from pinC0
+#
 myadc=pyb.ADC(pinC0)
 pinC1.low()
 time.sleep(1)
 ##  @brief Sets up timer 1
 #   @details sets up timer as timer 1 on the nucleo using pyb.Timer and then determining the frequency
+#
 tim1=pyb.Timer(1)
 tim1.init(freq=3000)
 
@@ -52,9 +57,16 @@ def interruptfunc(tim1):
 
 
 ## @brief Variable to wait for input to allow us to run portreader file
+#
 x=int(input())
+## @brief input to allow for port reader to collect data and generate plot
+#
 tim1.callback(interruptfunc)
+## @brief timer to delay the pin from being set to high to allow for interrupt to initiate and start putting data in queue.
+#
 time.sleep_ms(100)
+## @brief sets pin to high 
+#
 pinC1.high()
 #time.sleep(2)
 
